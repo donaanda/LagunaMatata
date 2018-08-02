@@ -258,11 +258,15 @@ footer{
          margin: 1%;
          padding: 1%;
          height: 10%;
-         font-size: 50%;
+         font-size: .01rem;
      }
      .weather > p:first-child {
-         font-size: 125%;
+         font-size: 100%;
          height: 20%;
+     }
+
+     .weather {
+         width: 35%;
      }
  }
 

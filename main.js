@@ -1,4 +1,3 @@
-
 $(document).ready(initializeApp);
 
 var map;
@@ -25,7 +24,7 @@ var beachArray = [
     "1000 Steps Beach"
 ];
 
-var beachIdArray= [
+var beachIdArray = [
     "ChIJebS6-Rzk3IARQjvVK17E-H4",
     "ChIJGwIiwBjk3IAR_KeQzuCxMDA",
     "ChIJiR_-gDvk3IARJvNOyNe6nqs",
@@ -86,6 +85,7 @@ var imageArray = [
     "./assets/Images/thousandStepsBeach.jpg",
     "./assets/Images/cameoCove.jpg"
 ];
+
 var yelpStars = {
     "0":"./assets/small/small_0@2x.png",
     "1":"./assets/small/small_1@2x.png",
@@ -98,12 +98,13 @@ var yelpStars = {
     "4.5":"./assets/small/small_4_half@2x.png",
     "5":"./assets/small/small_5@2x.png"
 };
+
 function initializeApp() {
     getWeatherFomDarkSky();
     constructBeachObjects();
 }
 
-function getWeatherFomDarkSky(){
+function getWeatherFomDarkSky() {
     var ajaxConfig = {
         'dataType': 'jsonp',
         'url': ' https://api.darksky.net/forecast/d89a8f31d58a881ce47cfc2ef67596a1/33.51941, -117.76292',
@@ -121,17 +122,17 @@ function getWeatherFomDarkSky(){
             let localWeatherObject = {currentTemp, currentWeatherSummary, feelsLikeTemp, humidity, dailyHighTemp, dailyLowTemp, dailyWeatherSummary, sunriseTime, sunsetTime};
             appendWeatherInfoToDom(localWeatherObject);
         },
-        error: function(){
+        error: function () {
         }
     };
     $.ajax(ajaxConfig);
 }
 
-function convertTimeToPacificDaylight(time){
+function convertTimeToPacificDaylight(time) {
     let newTime = new Date(time*1000);
     let hours = newTime.getHours();
     let minutes = "0" + newTime.getMinutes();
-    if (hours > 12){
+    if (hours > 12) {
         hours -=12;
         let convertedTime = `${hours}:${minutes.substr(-2)} PM`;
         return convertedTime;
@@ -140,7 +141,7 @@ function convertTimeToPacificDaylight(time){
     return convertedTime;
 }
 
-function appendWeatherInfoToDom (obj){
+function appendWeatherInfoToDom(obj) {
     let currentTemp = $("<p>").text(obj.currentTemp);
     let currentWeatherSummary = $("<p>").text(obj.currentWeatherSummary);
     let feelsLikeTemp =  $("<p>").text(obj.feelsLikeTemp);
@@ -156,7 +157,7 @@ function appendWeatherInfoToDom (obj){
 }
 
 function initMap() {
-    var lagunaCenter = {lat: 33.522759, lng: -117.763314};
+    let lagunaCenter = {lat: 33.522759, lng: -117.763314};
     map = new google.maps.Map(document.getElementById('map-container'), {
         center: lagunaCenter,
         zoom: 13.4,
@@ -279,14 +280,15 @@ function initMap() {
             }
         ]
     });
+
     setTimeout(function () {
         dropMarker();
     }, 500);
 }
 
-function constructBeachObjects(){
-    for(var i = 0; i < beachLongLat.length; i++){
-        var beach = {
+function constructBeachObjects() {
+    for (let i = 0; i < beachLongLat.length; i++) {
+        let beach = {
             name: beachArray[i],
             location: beachLongLat[i],
             picture : imageArray[i],
@@ -295,16 +297,17 @@ function constructBeachObjects(){
         beachesArray.push(beach);
     }
 }
+
 function dropMarker() {
-    var image = {
+    let image = {
         url: 'assets/Images/beachIcon.png',
         size: new google.maps.Size(50, 50),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(0, 0)
     };
-    for(var latlngArrayIndex = 0; latlngArrayIndex < beachLongLat.length; latlngArrayIndex++) {
-        var marker = new google.maps.Marker({
 
+    for (let latlngArrayIndex = 0; latlngArrayIndex < beachLongLat.length; latlngArrayIndex++) {
+        let marker = new google.maps.Marker({
             position: {
                 lat: beachesArray[latlngArrayIndex].location[0],
                 lng: beachesArray[latlngArrayIndex].location[1]
@@ -314,27 +317,21 @@ function dropMarker() {
             label: "",
             animation: google.maps.Animation.DROP,
         });
-        /*
-        var storeType = ["bar", "coffee", "food", "rental", "hotel"];
-        for (var typeIndex = 0; typeIndex < storeType.length; typeIndex++) {
-            yelpRatingandPictures(beachesArray[latlngArrayIndex], storeType[typeIndex]);
-        }*/
 
-        clickHandler(marker, beachesArray[latlngArrayIndex],latlngArrayIndex);
-        markerArray.push(marker)
-
+        clickHandler(marker, beachesArray[latlngArrayIndex], latlngArrayIndex);
+        markerArray.push(marker);
     }
 }
 
-function clickHandler(markerClicked, beachObj, index){
-    var storeType = ["bar", "coffee", "food", "rental", "hotel"];
+function clickHandler(markerClicked, beachObj, index) {
+    let storeType = ["bar", "coffee", "food", "rental", "hotel"];
     markerClicked.addListener('click', function() {
         $(".info-1").empty();
-        for (var typeIndex = 0; typeIndex < storeType.length; typeIndex++) {
+        for (let typeIndex = 0; typeIndex < storeType.length; typeIndex++) {
              yelpRatingandPictures(beachObj, storeType[typeIndex]);
         }
 
-        for(var i = 0; i < markerArray.length; i++){
+        for (let i = 0; i < markerArray.length; i++) {
             markerArray[i].setIcon({
                 url: 'assets/Images/beachIcon.png',
                 anchor: new google.maps.Point(0, 0),
@@ -356,12 +353,12 @@ function clickHandler(markerClicked, beachObj, index){
     });
 }
 
-function displayImage(clickedObj){
-    $('.image').css('background-image', 'url('+clickedObj.picture+')');
+function displayImage(clickedObj) {
+    $('.image').css('background-image', 'url('+ clickedObj.picture +')');
 }
 
-function displayComment(clickedObj){
-    var service = new google.maps.places.PlacesService(map);
+function displayComment(clickedObj) {
+    let service = new google.maps.places.PlacesService(map);
     service.getDetails({
         placeId: clickedObj.id
     }, function(place) {
@@ -392,25 +389,26 @@ function yelpRatingandPictures(beachObject, type) {
             console.log("The server returned no information.");
         }
     };
-    $.ajax(ajaxConfig)
+    $.ajax(ajaxConfig);
 }
 
+function yelpObjectConstructor(yelpData, type, beach) {
+    let storeObjectArray = [];
 
-function yelpObjectConstructor(yelpData, type, beach){
-    var storeObjectArray = [];
-    if(yelpData.businesses.length ===0){
-        return
-    }else{
+    if(yelpData.businesses.length === 0) {
+        return;
+    } else {
         appendYelpType(type);
     }
-    for (var storeIndex = 0; storeIndex < yelpData.businesses.length; storeIndex++) {
+
+    for (let storeIndex = 0; storeIndex < yelpData.businesses.length; storeIndex++) {
         let businesses_Name = yelpData.businesses[storeIndex].name;
         let businesses_Img = yelpData.businesses[storeIndex].image_url;
         let businesses_Rating = yelpData.businesses[storeIndex].rating;
         let businesses_Coordinates = yelpData.businesses[storeIndex].coordinates;
         let businesses_Distance = yelpData.businesses[storeIndex].distance;
         let businesses_Review_count = yelpData.businesses[storeIndex].review_count;
-        var storeObject = {
+        let storeObject = {
             businesses_Name,
             businesses_Img,
             businesses_Rating,
@@ -420,59 +418,40 @@ function yelpObjectConstructor(yelpData, type, beach){
         };
         storeObjectArray.push(storeObject);
         append_Yelp_Data_To_Dom(storeObject);
-        // plot_Yelp_Data_On_Map(storeObject);
     }
     beach[type] = storeObjectArray;
 }
+
 function appendYelpType(storeType) {
-    var type = $("<div>").attr("class", "storeType").text(storeType);
+    let type = $("<div>").attr("class", "storeType").text(storeType);
     $('.info-1').append(type);
 }
-/*
-function append_Yelp_Data_To_Dom( obj ){
-    $(".info-1").empty();
-    var storeType = ["bar", "coffee", "food", "rental", "hotel"];
-    for (var categoryIndex = 0; categoryIndex < storeType.length; categoryIndex++) {
-        for (var i = 0; i < obj[storeType[categoryIndex]].length; i++) {
-            let name = $("<p>").text(obj[storeType[categoryIndex]][i].businesses_Name);
-            let image = $("<img/>").attr('src', obj[storeType[categoryIndex]][i].businesses_Img);
-            image.addClass('yelp_img');
-            let rating =  $("<p>").text("Rating " + obj[storeType[categoryIndex]][i].businesses_Rating);
-            let reviewCount =  $("<p>").text("reviews "+ obj[storeType[categoryIndex]][i].businesses_Review_count);
-            let yelp_data_content = $("<div>");
-            yelp_data_content.addClass('yelp').append(name,image,rating,reviewCount);
-            $('.info-1').append(yelp_data_content);
-        }
-    }
-}
-*/
 
-function append_Yelp_Data_To_Dom( storeObject,){
+function append_Yelp_Data_To_Dom(storeObject) {
     let name = $("<p>").text(storeObject.businesses_Name);
     let image = $("<img>").attr('src', storeObject.businesses_Img);
     image.addClass('yelp_img');
     let ratingNumber = storeObject.businesses_Rating.toString();
     let yelp_star = $("<img>").attr("src", yelpStars[ratingNumber]);
     yelp_star.addClass("yelpStars");
-    // let rating =  $("<p>").text("Rating " + storeObject.businesses_Rating);
     let reviewCount =  $("<p>").text( storeObject.businesses_Review_count + " reviews");
     let yelp_data_content = $("<div>");
     yelp_data_content.addClass('yelp').append(name,image,yelp_star,reviewCount);
     $('.info-1').append(yelp_data_content);
     let yelpMarker = plot_Yelp_Data_On_Map(storeObject);
-    yelp_data_content.on("click", function(){
+    yelp_data_content.on("click", function() {
         $(".yelpSelected").removeClass("yelpSelected");
         yelp_data_content.addClass("yelpSelected");
     });
     yelp_data_content.on("click", yelpMarker, function(){
-        for(let markerIndex = 0; markerIndex < storeYelpMarkers.length; markerIndex++){
+        for (let markerIndex = 0; markerIndex < storeYelpMarkers.length; markerIndex++) {
             storeYelpMarkers[markerIndex].setAnimation(null);
         }
         yelpMarker.setAnimation(google.maps.Animation.BOUNCE);
     });
 }
 
-function scrolling() {
+function scrolling(){
     $('.info-1').scrollTop(300);
 }
 
@@ -490,8 +469,8 @@ function plot_Yelp_Data_On_Map(yelpPlace){
     return yelpMarker;
 }
 
-function removeMarkers(YelpMarkers){
-    for(let i=0; i<YelpMarkers.length; i++){
+function removeMarkers(YelpMarkers) {
+    for (let i = 0; i < YelpMarkers.length; i++) {
         YelpMarkers[i].setMap(null);
     }
 }
