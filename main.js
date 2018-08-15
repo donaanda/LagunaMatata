@@ -1,10 +1,10 @@
 $(document).ready(initializeApp);
 
-var map;
-var markerArray = [];
-var beachesArray = [];
+let map;
+const markerArray = [];
+const beachesArray = [];
 let storeYelpMarkers = [];
-var beachArray = [
+const beachArray = [
     "Cameo Cove",
     "Emerald Bay",
     "Crescent Bay",
@@ -24,7 +24,7 @@ var beachArray = [
     "1000 Steps Beach"
 ];
 
-var beachIdArray = [
+const beachIdArray = [
     "ChIJebS6-Rzk3IARQjvVK17E-H4",
     "ChIJGwIiwBjk3IAR_KeQzuCxMDA",
     "ChIJiR_-gDvk3IARJvNOyNe6nqs",
@@ -45,7 +45,7 @@ var beachIdArray = [
 
 ];
 
-var beachLongLat = [
+const beachLongLat = [
     [33.55391, -117.8161],
     [33.55163, -117.80913],
     [33.54665, -117.80159],
@@ -65,7 +65,7 @@ var beachLongLat = [
     [33.49776, -117.74143]
 ];
 
-var imageArray = [
+const imageArray = [
     "./assets/Images/cameoCove.jpg",
     "./assets/Images/emeraldBay.jpg",
     "./assets/Images/cresentBay.jpg",
@@ -86,7 +86,7 @@ var imageArray = [
     "./assets/Images/cameoCove.jpg"
 ];
 
-var yelpStars = {
+const yelpStars = {
     "0":"./assets/small/small_0@2x.png",
     "1":"./assets/small/small_1@2x.png",
     "1.5":"./assets/small/small_1_half@2x.png",
@@ -105,7 +105,7 @@ function initializeApp() {
 }
 
 function getWeatherFomDarkSky() {
-    var ajaxConfig = {
+    let ajaxConfig = {
         'dataType': 'jsonp',
         'url': ' https://api.darksky.net/forecast/d89a8f31d58a881ce47cfc2ef67596a1/33.51941, -117.76292',
         'method': 'GET',
