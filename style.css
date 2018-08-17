@@ -12,18 +12,20 @@ body {
     color: #B6C3CB;
 }
 
-.logo-container{
+.logo-container {
     width: 50%;
     height: 50%;
     border-radius: 50%;
 }
-#logo{ 
+
+#logo {
     width: 100%;
     height: 100%;
     padding: 11px;
     margin-left: 1vw;
 }
-.text-title{
+
+.text-title {
     text-align: right;
     color: floralwhite;
     font-weight: 800;
@@ -33,10 +35,12 @@ body {
     font-size: 5vh;
     font-family: 'Pacifico', cursive;
 }
-.header-container{
+
+.header-container {
     display: inline-flex;
     width: 100%;
 }
+
 header {
     display: flex;
     flex-direction: row;
@@ -47,17 +51,17 @@ header {
     box-sizing: border-box;
 }
 
-.logo-text{
-    width: 67%;
+.logo-text {
+    width: 100%;
     height: 50%;
     float: left;
-   
 }
-.img{
+
+.img {
     align-content: center;
 }
 
-footer{
+footer {
     height: 2.5%;
     width: 100%;
     box-sizing: border-box;
@@ -66,7 +70,8 @@ footer{
     bottom: 0;
     background-color: #275D87;
 }
-.info-container-wrapper{
+
+.info-container-wrapper {
     overflow: hidden;
     height: 83vh;
     width: 25vw;
@@ -74,6 +79,7 @@ footer{
     border-radius: 5%;
     margin-bottom: 1.5%;
 }
+
 .info-container {
     display: inline-block;
     height: 100%;
@@ -84,12 +90,10 @@ footer{
     overflow-y: auto;
     overflow-x: hidden;
     padding: 1%;
-
 }
 
 .info-1 {
     height: 13vw;
-    width: 100%;
 }
 
 #wrapper {
@@ -137,7 +141,6 @@ footer{
     padding: 3%;
     font-weight: 800;
     color: floralwhite;
-
 }
 
 .beachName {
@@ -146,7 +149,7 @@ footer{
     font-family: 'Pacifico', cursive;
 }
 
-.reviewText .reviewRating{
+.reviewText .reviewRating {
     font-size: 100%;
     text-align: center;
 }
@@ -169,7 +172,7 @@ footer{
     font-family: Arial, sans-serif;
 }
 
-.high-low{
+.high-low {
     right: 0;
 }
 
@@ -182,25 +185,30 @@ footer{
     margin: auto auto 5vh 5vw;
     background-color: #b65824;
 }
+
 .yelp_container>div {
     width: 9vh;
     height: 9vw;
     border: 1px solid black;
 }
+
 .yelp_img {
     float:left;
     object-fit: contain;
     width: 50%;
     height: 50%;
 }
-.yelpStars{
+
+.yelpStars {
     width: 11vw;
     margin: 2%;
 }
-.yelpSelected{
+
+.yelpSelected {
     border: white outset 0.1vw;
     background-color: white
 }
+
 .yelp {
     color: black;
     font-size: 1.7vw;
@@ -212,14 +220,16 @@ footer{
 
 .yelp >p,
 .Name_title >p,
-.price_title >p{
+.price_title >p {
     margin: 0;
 }
-.yelp > p:first-child{
+
+.yelp > p:first-child {
     font-size: 1.7vw;
     font-family: 'Pacifico', cursive;
 }
-.storeType{
+
+.storeType {
     font-size: 3vw;
     color: white;
     font-weight: bold;
@@ -242,7 +252,7 @@ footer{
     bottom: 0
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 2%;
 }
 ::-webkit-scrollbar-track {
@@ -276,6 +286,24 @@ footer{
         margin: 2%;
     }
     .weather > p:first-child {
-        font-size: 300%;
+        font-size: 200%;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .text-title {
+        font-size: 4vh;
+    }
+}
+
+@media only screen and (max-height: 590px) {
+    .logo {
+        display: none;
+    }
+}
+
+@media only screen and (max-height: 400px) {
+    .weather {
+        height: 40%;
     }
 }
