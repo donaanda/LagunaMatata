@@ -113,7 +113,7 @@ function getWeatherFomDarkSky() {
             let currentTemp = `${Math.ceil(result.currently.temperature)} F`;
             let currentWeatherSummary = `Currently: ${result.currently.summary}`;
             let feelsLikeTemp = `Feels Like: ${Math.ceil(result.currently.apparentTemperature)} F`;
-            let humidity = `Humidity: ${((result.currently.humidity)*100)}%`;
+            let humidity = `Humidity: ${Math.round(result.currently.humidity*100)}%`;
             let dailyHighTemp = `High: ${Math.ceil(result.daily.data[0].temperatureMax)} F`;
             let dailyLowTemp = `Low: ${Math.ceil(result.daily.data[0].temperatureMin)} F`;
             let dailyWeatherSummary = result.daily.data[0].summary;
