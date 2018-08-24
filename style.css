@@ -74,7 +74,7 @@ footer {
 .info-container-wrapper {
     overflow: hidden;
     height: 83vh;
-    width: 25vw;
+    width: 26vw;
     display: inline-block;
     border-radius: 5%;
     margin-bottom: 1.5%;
@@ -289,7 +289,7 @@ footer {
     }
 }
 
-@media only screen and (max-width: 755px) {
+@media only screen and (max-width: 780px) {
     .text-title {
         font-size: 4vh;
     }
