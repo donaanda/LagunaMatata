@@ -310,4 +310,16 @@ footer {
         font-size: 10%;
         margin: 5%;
     }
+
+    .reviewTextBox {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-height: 150px) {
+    .weather p {
+        font-size: 0;
+        margin: 5%;
+    }
+
 }
