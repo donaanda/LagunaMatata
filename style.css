@@ -303,12 +303,16 @@ footer {
 
 @media only screen and (max-height: 380px) {
     .weather {
-        height: 75%;
+        height: 30%;
     }
 
     .weather p {
-        font-size: 10%;
-        margin: 5%;
+        font-size: 0.5rem;
+        margin: 1%;
+    }
+
+    .weather > p:first-child {
+        font-size: 0.9rem;
     }
 
     .reviewTextBox {
@@ -316,10 +320,9 @@ footer {
     }
 }
 
-@media only screen and (max-height: 150px) {
+@media only screen and (max-height: 220px) {
     .weather p {
         font-size: 0;
-        margin: 5%;
     }
 
 }
