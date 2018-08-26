@@ -100,7 +100,7 @@ footer {
     position: relative;
     display: inline-block;
     height: 85vh;
-    width: 70vw;
+    width: 68vw;
     box-sizing: border-box;
 }
 
@@ -301,8 +301,13 @@ footer {
     }
 }
 
-@media only screen and (max-height: 400px) {
+@media only screen and (max-height: 380px) {
     .weather {
-        height: 40%;
+        height: 75%;
+    }
+
+    .weather p {
+        font-size: 10%;
+        margin: 5%;
     }
 }
