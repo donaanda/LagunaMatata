@@ -428,13 +428,13 @@ function appendYelpType(storeType) {
 }
 
 function append_Yelp_Data_To_Dom(storeObject) {
-    let name = $("<p>").text(storeObject.businesses_Name);
+    let name = $("<div>").text(storeObject.businesses_Name);
     let image = $("<img>").attr('src', storeObject.businesses_Img);
     image.addClass('yelp_img');
     let ratingNumber = storeObject.businesses_Rating.toString();
     let yelp_star = $("<img>").attr("src", yelpStars[ratingNumber]);
     yelp_star.addClass("yelpStars");
-    let reviewCount =  $("<p>").text( storeObject.businesses_Review_count + " reviews");
+    let reviewCount =  $("<div>").text( storeObject.businesses_Review_count + " reviews");
     let yelp_data_content = $("<div>");
     yelp_data_content.addClass('yelp').append(name,image,yelp_star,reviewCount);
     $('.info-1').append(yelp_data_content);
