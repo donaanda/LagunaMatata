@@ -210,9 +210,7 @@ footer {
 
 .yelp {
     color: black;
-    font-size: 1.7vw;
     text-align: center;
-    height:100%;
     width:100%;
     border-bottom: .2em dotted #6a6969;
 }
@@ -224,7 +222,6 @@ footer {
 }
 
 .yelp > div:first-child {
-    font-size: 1.7vw;
     font-family: 'Pacifico', cursive;
 }
 
