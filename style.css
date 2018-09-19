@@ -164,7 +164,6 @@ footer {
     padding: 10px;
     box-shadow: 1px 1px 10px;
     text-align: center;
-    line-height: 3vh;
 }
 
 .weather > p, .reviewText, .yelp {
@@ -279,9 +278,6 @@ footer {
     .current > p, .sunrise-sunset > p, .high-low > p, .weather > p, .reviewText {
         margin: 2%;
     }
-    .weather > p:first-child {
-        font-size: 1.6rem;
-    }
 }
 
 @media only screen and (max-width: 860px) {
@@ -297,17 +293,9 @@ footer {
 }
 
 @media only screen and (max-height: 380px) {
-    .weather {
-        height: 30%;
-    }
 
     .weather p {
-        font-size: 0.5rem;
         margin: 1%;
-    }
-
-    .weather > p:first-child {
-        font-size: 0.9rem;
     }
 
     .reviewTextBox {
@@ -315,9 +303,3 @@ footer {
     }
 }
 
-@media only screen and (max-height: 220px) {
-    .weather p {
-        font-size: 0;
-    }
-
-}
