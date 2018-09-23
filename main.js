@@ -160,7 +160,7 @@ function initMap() {
     let lagunaCenter = {lat: 33.522759, lng: -117.763314};
     map = new google.maps.Map(document.getElementById('map-container'), {
         center: lagunaCenter,
-        zoom: 13.4,
+        zoom: 12.4,
         disableDefaultUI: true,
         mapTypeId: 'terrain',
         styles: [
@@ -345,7 +345,7 @@ function clickHandler(markerClicked, beachObj, index) {
             origin: new google.maps.Point(0, 0),
         });
         map.panTo(markerClicked.getPosition());
-        map.setZoom(16);
+        map.setZoom(14);
         markerClicked.setAnimation(google.maps.Animation.BOUNCE);
         displayImage(beachObj);
         displayComment(beachObj);
