@@ -123,6 +123,7 @@ function getWeatherFomDarkSky() {
             appendWeatherInfoToDom(localWeatherObject);
         },
         error: function () {
+            console.log("Error");
         }
     };
     $.ajax(ajaxConfig);
